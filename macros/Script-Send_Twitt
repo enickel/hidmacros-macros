@@ -3,7 +3,7 @@
 'Author: ProtoAMP - https://www.youtube.com/channel/UCbQkHK4vpN6jTdjNpClrn5Q
 
 Dim WshShell
-set WshShell = CreateObject("W.Shell")
+set WshShell = CreateObject("Wscript.Shell")
 WshShell.Run "chrome https://twitter.com/"
 WshShell.AppActivate "chrome"
 HIDMacros.Sleep 5000
