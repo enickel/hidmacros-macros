@@ -27,9 +27,13 @@ http://www.hidmacros.eu/download.php
  >Note: HID macros must be running before you press the associated key. 
    
  ## Known Issues   
- ### All numpad keys as 144()   
+ ### 1 - All numpad keys as 144()   
  __Description:__   
  When you scan numpad key, you can momentarily see the right key id if you hold it but itn the release it ends with 144() value.  
  __Workaround:__  
 ~Disable the _num lock_ (lights off, represent the arrows and not the numbers).~   
 Enable the _num lock_ (lights on, represents the numbers and not the arrows).  
+
+ ### 2 - Must be out of a text input to trigger the macro  
+ __Description:__   
+ You CANNOT have your cursor in an active input text field otherwise your key will act in the stock behavior (e.g Number 0) instead of trigger the macro.
