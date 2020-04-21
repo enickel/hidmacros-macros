@@ -29,7 +29,7 @@ http://www.hidmacros.eu/download.php or https://github.com/me2d13/hidmacros
  ## Known Issues   
  ### 1 - All numpad keys as 144()   
  __Description:__   
- When you scan diffent numpad keys, you can momentarily see the right key id if you hold it but when you release it ends with the 144() value.  
+ When you scan diffent numpad keys, you can momentarily see the right key id if you hold it but when you release it ends with the default 144() value.  
  __Workaround:__  
 ~Disable the _num lock_ (lights off, represent the arrows and not the numbers).~   
 Enable the _num lock_ (lights on, represents the numbers and not the arrows).  
