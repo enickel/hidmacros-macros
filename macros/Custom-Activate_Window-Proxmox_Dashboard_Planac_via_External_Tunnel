@@ -1,4 +1,4 @@
-'Script name: Custom-Activate_Window-Proxmox_Dashboard_Planac_via_External_Tunnel
+'Script name: Custom-Activate_Window-Proxmox_Dashboard_Planaclan_via_External_Tunnel
 'Description: Set focus in the Proxmox dashboard window via external tunnel, if it`s not available, open it. 
 'Note: This version is using static plain text password, check the version using certificates for authentication.
 'Note: It requires Plink, the CLI version of putty, you can get it in https://the.earth.li/~sgtatham/putty/latest/w32/plink.exe
