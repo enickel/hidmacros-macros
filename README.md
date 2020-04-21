@@ -17,8 +17,12 @@ http://www.hidmacros.eu/download.php or https://github.com/me2d13/hidmacros
    d. Press _compile_.  
    e. Press _save configuration_.   
    
- >Note: You can find macro sample codes in the _Macros_ folder of this repository.  
-    
+ >Note: You can find sample codes in the _Macros_ folder of this repository.   
+ 
+ >Note: You MUST replace the default values of variables as usernames, passwords and ip addresses in the examples you get in our repository before execute it.    
+ 
+ >Note: In the examples, the prefix _"script-"_ means a macro template and _"custom-"_ means a specific instance of a template with custom values.   
+ 
  >Note: You can make an alias for your keyboards in the _Devices_ tab using the button _Rename_.  
     
  ### Execute a Macro
