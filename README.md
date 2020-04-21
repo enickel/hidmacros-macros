@@ -17,18 +17,19 @@ http://www.hidmacros.eu/download.php
    d. Press _compile_.  
    e. Press _save configuration_.   
    
-    >Note: You can find macro sample codes in the _Macros_ folder of this repository.  
+ >Note: You can find macro sample codes in the _Macros_ folder of this repository.  
     
-    >Note: You can make an alias for your keyboards in the _Devices_ tab using the button _Rename_.  
+ >Note: You can make an alias for your keyboards in the _Devices_ tab using the button _Rename_.  
     
  ### Execute a Macro
  1. Just press the associated button after configure the macro as above.   
  
-   >Note: HID macros must be running before you press the associated key. 
+ >Note: HID macros must be running before you press the associated key. 
    
  ## Known Issues   
  ### All numpad keys as 144()   
- __Description:__ When you scan numpad key, you can momentarily see the right key id if you hold it but itn the release it ends with 144() value.  
+ __Description:__   
+ When you scan numpad key, you can momentarily see the right key id if you hold it but itn the release it ends with 144() value.  
  __Workaround:__  
 ~Disable the _num lock_ (lights off, represent the arrows and not the numbers).~   
 Enable the _num lock_ (lights on, represents the numbers and not the arrows).  
