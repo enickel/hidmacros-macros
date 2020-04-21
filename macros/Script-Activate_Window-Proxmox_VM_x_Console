@@ -1,5 +1,6 @@
 'Script name: Script-Activate_Window-Proxmox_VM_x_Console
 'Description: Set focus in the console window of a specific VM in Proxmox, if it`s not available, open it. 
+'Note: You MUST login in the Proxmox Dashboard first. You can use the Script-Activate_Window-Proxmox_Dashboard_via_External_Tunnel macro for this.
 'Author: Eduardo Maltauro Nickel
 
 Dim vmName
