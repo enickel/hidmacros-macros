@@ -1,0 +1,21 @@
+'Script name: Custom-Activate_Window-Proxmox_VM_device23.kali@planaclan_Console
+'Description: Set focus in the console window of a specific VM in Proxmox, if it`s not available, open it. 
+'Author: Eduardo Maltauro Nickel
+
+Dim vmName
+Dim vmId 
+Dim hypervisorNode
+Dim hypervisorAddr
+Dim hypervisorPort
+
+vmName = "device23.kali" 
+vmId = "107"
+hypervisorNode = "planaclan"
+hypervisorAddr = "localhost"
+hypervisorPort = "8888"
+
+Dim WshShell
+set WshShell = CreateObject("Wscript.Shell")
+if WshShell.AppActivate("QEMU ("&vmName&") - noVNC") = false Then
+WshShell.Run "chrome --new-window https://"&hypervisorAddr&":"&hypervisorPort&"/?console=kvm&novnc=1&vmid="&vmId&"&vmname="&vmName&"&node="&hypervisorNode&"&resize=off&cmd="
+End if
