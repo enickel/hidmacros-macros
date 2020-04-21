@@ -1,0 +1,12 @@
+'Script name: Script-Send_Twitt
+'Description: Open browser and send a twitter 
+'Author: ProtoAMP - https://www.youtube.com/channel/UCbQkHK4vpN6jTdjNpClrn5Q
+
+Dim WshShell
+set WshShell = CreateObject("W.Shell")
+WshShell.Run "chrome https://twitter.com/"
+WshShell.AppActivate "chrome"
+HIDMacros.Sleep 5000
+HIDMacros.SendKeys "n"
+HIDMacros.Sleep 1500
+HIDMacros.SendKeys "I'm streaming over at @Twitch. https://www.twitch.tv/..."
