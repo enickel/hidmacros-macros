@@ -34,7 +34,7 @@ Dim cmdsrun
 Dim WshShell
 set WshShell = CreateObject("Wscript.Shell")
 
-cmdsrun = "cmd /K  tasklist /fi ""imagename eq cmd.exe"" /fo list /v | findstr ""plink.exe  -v -x -a -T -C -noagent -l "&tunJumpUser&" -pw "&tunJumpPwd&" -L "&tunLocalPort&":"&tunRemoteAddr&":"&tunRemotePort&" "&tunJumpAddr
+cmdsrun = "cmd /K  tasklist /fi ""imagename eq cmd.exe"" /fo list /v | findstr /C:""plink.exe  -v -x -a -T -C -noagent -l "&tunJumpUser&" -pw "&tunJumpPwd&" -L "&tunLocalPort&":"&tunRemoteAddr&":"&tunRemotePort&" "&tunJumpAddr
 'WshShell.Popup("Check process cmd: "&cmdsrun)
 set searchStr = WshShell.Exec(cmdsrun)
 result =  searchStr.StdOut.Readline()
