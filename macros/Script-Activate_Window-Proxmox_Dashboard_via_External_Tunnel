@@ -1,0 +1,72 @@
+'Script name: Script-Activate_Window-Proxmox_Dashboard_via_External_Tunnel
+'Description: Set focus in the Proxmox dashboard window via external tunnel, if it`s not available, open it. 
+'Note: This version is using static plain text password, check the version using certificates for authentication.
+'Note: It requires Plink, the CLI version of putty, you can get it in https://the.earth.li/~sgtatham/putty/latest/w32/plink.exe
+'Note: If it does not automatically log in, check if the timing out the credential input after WshShell.Run "chrome...
+'Author: Eduardo Maltauro Nickel
+
+Dim tunJumpUser
+Dim tunJumpPwd
+Dim tunJumpAddr
+Dim tunRemoteAddr
+Dim tunRemotePort
+Dim tunLocalPort
+Dim plinkPath
+Dim hypervisorAddr
+Dim hypervisorPort
+Dim hypervisorUser 
+Dim hypervisorPwd
+
+tunJumpUser = "user"
+tunJumpPwd = "password"
+tunJumpAddr = "a.x.x.53"
+tunRemoteAddr = "a.y.y.47"
+tunRemotePort = "8006"
+tunLocalPort = "8888"
+plinkFolder = "C:\Program Files (x86)\" 
+hypervisorAddr = "localhost"
+hypervisorPort = tunLocalPort
+hypervisorNode = "nodename"
+hypervisorUser = "user"
+hypervisorPwd = "password" 
+
+Dim cmdsrun 
+Dim WshShell
+set WshShell = CreateObject("Wscript.Shell")
+
+cmdsrun = "cmd /K  tasklist /fi ""imagename eq cmd.exe"" /fo list /v | findstr ""plink.exe  -v -x -a -T -C -noagent -l "&tunJumpUser&" -pw "&tunJumpPwd&" -L "&tunLocalPort&":"&tunRemoteAddr&":"&tunRemotePort&" "&tunJumpAddr
+'WshShell.Popup("Check process cmd: "&cmdsrun)
+set searchStr = WshShell.Exec(cmdsrun)
+result =  searchStr.StdOut.Readline()
+'WshShell.Popup("Check result: "&result)
+if InStr(result,"plink.exe  -v -x -a -T -C -noagent -l "&tunJumpUser&" -pw "&tunJumpPwd&" -L "&tunLocalPort&":"&tunRemoteAddr&":"&tunRemotePort&" "&tunJumpAddr) = false Then
+'WshShell.Popup("Tunnel not found, creating it...")
+cmdsrun = "cmd /K CD "&plinkFolder&" & plink.exe -v -x -a -T -C -noagent -l "&tunJumpUser&" -pw "&tunJumpPwd&" -L "&tunLocalPort&":"&tunRemoteAddr&":"&tunRemotePort&" "&tunJumpAddr
+'WshShell.Popup("Executing: "&cmdsrun)
+WshShell.Run cmdsrun
+HIDMacros.Sleep 800
+HIDMacros.SendKeys "{ENTER}"
+End if
+
+if WshShell.AppActivate(hypervisorNode&" - Proxmox Virtual Environment") = false Then
+WshShell.Run "chrome --new-window https://"&hypervisorAddr&":"&hypervisorPort&"/"
+'WshShell.Run "iexplore https://"&hypervisorAddr&":"&hypervisorPort&"/"
+HIDMacros.Sleep 4000
+'HIDMacros.SendKeysSlow "{TAB}", 1000
+HIDMacros.Sleep 200
+HIDMacros.SendKeys hypervisorUser
+HIDMacros.Sleep 200
+HIDMacros.SendKeysSlow "{TAB}", 1000
+HIDMacros.Sleep 200
+HIDMacros.SendKeys hypervisorPwd
+HIDMacros.Sleep 200
+HIDMacros.SendKeys "{TAB}"
+HIDMacros.Sleep 200
+HIDMacros.SendKeys "{TAB}"
+HIDMacros.Sleep 200
+HIDMacros.SendKeys "{TAB}"
+HIDMacros.Sleep 200
+HIDMacros.SendKeys "{ENTER}"
+End if
+
+
