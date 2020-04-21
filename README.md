@@ -1,10 +1,10 @@
 # hidmacros-macros
-Personal macros for hidmacros
+Personal macros for hidmacros (https://github.com/me2d13/hidmacros)
 
 ## How to use
 ### Install
 1. Download _HID macros_: 
-http://www.hidmacros.eu/download.php
+http://www.hidmacros.eu/download.php or https://github.com/me2d13/hidmacros
 2. Extract to your program`s folder (e.g. C:\Program Files (x86)\hidmacro)
 3. Right click the _HIDMacros.exe_, choose _Run as administrator_, _yes_.
 
